@@ -19,3 +19,6 @@ myList.Prepend(demoNode101);
 myList.Print();
 
 myList.ToString();
+
+myList.Pop();
+myList.ToString();

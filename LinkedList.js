@@ -63,7 +63,25 @@ export default class LinkedList {
     }
 
     Pop() {
-        console.log("Remove the last element from the list");
+        if(this.length == 0){
+            console.log("List empty, Pop not possible");
+        }
+        else if(this.length == 1) {
+            console.log("Popped value: " + this.head);
+            this.head = null;
+            this.tail = null;
+        }
+        else{
+            let prev = this.head;
+            let temp = this.head.next;
+            while(temp.next) {
+                prev = temp;
+                temp = temp.next;
+            }
+            prev.next = null;
+            console.log("Popped value: " + temp.data);
+        }
+        this.length--;
     }
 
     LookUp(index) {
