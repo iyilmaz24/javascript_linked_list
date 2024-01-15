@@ -59,6 +59,7 @@ export default class LinkedList {
             node.next = this.head
             this.head = node;
         }
+        this.length++;
     }
 
     Pop() {

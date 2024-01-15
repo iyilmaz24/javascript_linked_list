@@ -8,10 +8,14 @@ demoNode11.Print();
 const demoNode99 = new Node(99);
 demoNode99.Print();
 
+const demoNode101 = new Node(101);
+demoNode101.Print();
+
 const myList = new LinkedList();
 myList.Print();
 myList.Append(demoNode11);
 myList.Append(demoNode99);
+myList.Prepend(demoNode101);
 myList.Print();
 
 myList.ToString();
