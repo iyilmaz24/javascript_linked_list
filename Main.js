@@ -20,5 +20,13 @@ myList.Print();
 
 myList.ToString();
 
-myList.Pop();
+// myList.Pop();
 myList.ToString();
+
+// myList.LookUp(0);
+// myList.LookUp(1);
+// myList.LookUp(2);
+// myList.LookUp(9);
+
+myList.Contains(99);
+myList.Contains(10);

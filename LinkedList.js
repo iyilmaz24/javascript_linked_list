@@ -85,11 +85,29 @@ export default class LinkedList {
     }
 
     LookUp(index) {
-        console.log("Return the node at the given index");
+        if(index > this.length - 1){
+            console.log(`Index (${index}) out of range`)
+        }
+        else {
+            let temp = this.head
+            for(let i = 0; i != index; i++) {
+                temp = temp.next
+            }
+            console.log(`Index ${index}: ( ${temp.data} )`)
+        }
     }
 
     Contains(value) {
-        console.log("Return index of given value if valid else false");
+        let temp = this.head;
+        for(let i = 0; i < this.length; i++) {
+            console.log(i)
+            if(temp.data == value) {
+                console.log(`Value found at index (${i})`);
+                return
+            }
+            temp = temp.next
+        }
+        console.log("Value does not exist")
     }
 
     InsertAt(index) {
