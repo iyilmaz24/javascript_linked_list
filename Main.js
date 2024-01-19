@@ -30,3 +30,28 @@ myList.ToString();
 
 myList.Contains(99);
 myList.Contains(10);
+
+const demoNode40 = new Node(40);
+const demoNode88 = new Node(88);
+const demoNode2 = new Node(2);
+
+myList.InsertAt(3, demoNode40);
+myList.InsertAt(0, demoNode88);
+myList.InsertAt(2, demoNode2);
+myList.ToString();
+myList.LookUp(4);
+
+myList.RemoveAt(2);
+myList.RemoveAt(10);
+myList.ToString();
+
+const demoNode55 = new Node(55);
+myList.InsertAt(5, demoNode55);
+myList.ToString();
+myList.Print();
+
+myList.RemoveAt(5);
+myList.ToString();
+myList.RemoveAt(2);
+myList.ToString();
+myList.Print();

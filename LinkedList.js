@@ -14,7 +14,7 @@ export default class LinkedList {
             console.log("Length: " + this.length);
         }
         else {
-            console.log("List currently empty!");
+            console.log("List Currently Empty!");
         }
     }
 
@@ -64,10 +64,10 @@ export default class LinkedList {
 
     Pop() {
         if(this.length == 0){
-            console.log("List empty, Pop not possible");
+            console.log("List Empty, Pop Not Possible");
         }
         else if(this.length == 1) {
-            console.log("Popped value: " + this.head);
+            console.log("Popped Value: " + this.head);
             this.head = null;
             this.tail = null;
         }
@@ -79,14 +79,15 @@ export default class LinkedList {
                 temp = temp.next;
             }
             prev.next = null;
-            console.log("Popped value: " + temp.data);
+            console.log("Popped Value: " + temp.data);
+            this.tail = prev;
         }
         this.length--;
     }
 
     LookUp(index) {
         if(index > this.length - 1){
-            console.log(`Index (${index}) out of range`)
+            console.log(`Index (${index}) Out of Range`)
         }
         else {
             let temp = this.head
@@ -102,20 +103,69 @@ export default class LinkedList {
         for(let i = 0; i < this.length; i++) {
             console.log(i)
             if(temp.data == value) {
-                console.log(`Value found at index (${i})`);
+                console.log(`Value Found at Index (${i})`);
                 return
             }
             temp = temp.next
         }
-        console.log("Value does not exist")
+        console.log("Value Does Not Exist")
     }
 
-    InsertAt(index) {
-        console.log("Insert item at given index");
+    InsertAt(index, newNode) {
+        if(index == this.length) {
+            this.Append(newNode)
+            return
+        }
+
+        if(index > this.length) {
+            console.log("Insert Index Out of Range")
+            return
+        }
+
+        if(index == 0) {
+            this.Prepend(newNode)
+            return
+        }
+
+        let temp = this.head
+        let prev = null
+        for(let i = 0; i != index; i++) {
+            prev = temp
+            temp = temp.next
+        }
+        prev.next = newNode
+        newNode.next = temp
+        this.length++;
     }
 
     RemoveAt(index) {
-        console.log("Remove item at given index");
+        if(index == this.length - 1) {
+            this.Pop()
+            return
+        }
+
+        if(index > this.length - 1) {
+            console.log("Remove Index Out of Range")
+            return
+        }
+
+        if(index == 0) {
+            let temp = this.head.next
+            this.head.next = null
+            this.head = temp
+            this.length--;
+            return
+        }
+
+        let prev = null
+        let temp = this.head
+        for(let i = 0; i != index; i++) {
+            prev = temp
+            temp = temp.next
+        }
+        prev.next = temp.next
+        temp.next = null
+        this.length--;
     }
 
 }
